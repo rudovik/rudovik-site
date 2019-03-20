@@ -1,0 +1,23 @@
+{
+  "name": "rudovik-site",
+  "version": "1.0.0",
+  "description": "This is a travel site for a good chilling time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudovik/rudovik-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rudovik/rudovik-site/issues"
+  },
+  "homepage": "https://github.com/rudovik/rudovik-site#readme",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.1"
+  }
+}
