@@ -19,5 +19,18 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "browser-sync": "^2.26.3",
+    "bs-html-injector": "^3.0.3",
+    "eslint": "^5.15.3",
+    "gulp": "^4.0.0",
+    "gulp-postcss": "^8.0.0",
+    "jshint": "^2.10.2",
+    "postcss-import": "^12.0.1",
+    "postcss-mixins": "^6.2.1",
+    "postcss-nested": "^4.1.2",
+    "postcss-simple-vars": "^5.0.2"
   }
 }
