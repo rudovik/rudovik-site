@@ -13,6 +13,12 @@ function watchTask (cb) {
 		['./app/assets/styles/**/*.css'],
 		series('doStyles')
 	);
+
+	watch(
+		['./app/assets/scripts/**/*.js'],
+		series('scripts')
+	);
+
 	cb();
 }
 
