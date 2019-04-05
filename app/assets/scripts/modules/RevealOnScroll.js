@@ -21,7 +21,7 @@ class RevealOnScroll {
 			return new Waypoint({
 				element: currentItem,
 				handler: () => {
-					$(currentItem).addClass("reveal-item--is-visible");
+					$(currentItem).toggleClass("reveal-item--is-visible");
 				},
 				offset: that.offset
 			});

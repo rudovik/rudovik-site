@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rudovik/rudovik-site#readme",
   "dependencies": {
     "jquery": "^3.3.1",
+    "jquery-smooth-scroll": "^2.2.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
