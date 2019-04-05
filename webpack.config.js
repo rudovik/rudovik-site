@@ -1,5 +1,8 @@
 module.exports = {
-	entry: "./app/assets/scripts/App.js",
+	entry: {
+		App: "./app/assets/scripts/App.js",
+		Vendor: "./app/assets/scripts/Vendor.js"
+	},
 	mode: "development",
 	module: {
 		rules: [
@@ -11,7 +14,7 @@ module.exports = {
 		]
 	},
 	output: {
-		filename: "App.js",
+		filename: "[name].js",
 		path: "/home/rudovik/Desktop/Sites/rudovik-site/app/temp/scripts"
 	}
 };
