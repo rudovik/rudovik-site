@@ -1,24 +1,26 @@
 const config = {
-	shape: {
-		spacing: {
-			padding: 1
-		}
-	},
 	mode: {
 		css: {
-			variables: {
-				replaceSvgWithPng: () => {
-					return (sprite, render) => {
-						return render(sprite).split('.svg').join('.png');
-					};
-				}
-			},
 			render: {
 				css: {
 					template: './gulp/templates/sprite.css'
 				}
 			},
-			sprite: 'sprite.svg'
+			sprite: 'sprite.svg',
+			variables: {
+				replaceSvgWithPng: () => {
+					return (sprite, render) => {
+
+						return render(sprite).split('.svg').
+							join('.png');
+					};
+				}
+			}
+		}
+	},
+	shape: {
+		spacing: {
+			padding: 1
 		}
 	}
 };

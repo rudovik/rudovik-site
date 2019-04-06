@@ -3,13 +3,18 @@ module.exports = {
 		App: "./app/assets/scripts/App.js",
 		Vendor: "./app/assets/scripts/Vendor.js"
 	},
-	mode: "development",
+	mode: "production",
 	module: {
 		rules: [
 			{
 				exclude: /node_modules/u,
-				loader: "babel-loader",
-				test: /\.js$/u
+				test: /\.js$/u,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env']
+					}
+				}
 			}
 		]
 	},
