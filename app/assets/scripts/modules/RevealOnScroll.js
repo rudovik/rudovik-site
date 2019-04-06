@@ -14,14 +14,14 @@ class RevealOnScroll {
 	}
 
 	createWaypoints () {
-		let that = this;
+		const that = this;
+
 		this.itemsToReveal.each(function () {
 			let currentItem = this;
 
 			return new Waypoint({
 				element: currentItem,
 				handler: () => {
-					console.log("hello3")
 					$(currentItem).toggleClass("reveal-item--is-visible");
 				},
 				offset: that.offset

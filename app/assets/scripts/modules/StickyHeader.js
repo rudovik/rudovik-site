@@ -21,18 +21,17 @@ class StickyHeader {
 			Waypoint.refreshAll();
 		});
 	}
-	
+
 	addSmoothScrolling () {
 		this.headerLinks.smoothScroll();
 	}
-	
+
 	createHeaderWaypoint () {
 		const that = this;
 
 		new Waypoint({
 			element: this.headerTriggerElement[0],
 			handler: () => {
-				console.log("hello");
 				that.siteHeader.toggleClass("site-header--dark");
 				that.headerLinks.removeClass('is-current-link');
 			}
@@ -48,7 +47,7 @@ class StickyHeader {
 			new Waypoint({
 				element: currentPageSection,
 				handler: (direction) => {
-					if (direction == "down") {
+					if (direction === "down") {
 						const matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
 						that.headerLinks.removeClass('is-current-link');
 						$(matchingHeaderLink).addClass("is-current-link");	
@@ -56,14 +55,14 @@ class StickyHeader {
 				},
 				offset: '18%'
 			});
-			
+
 			new Waypoint({
 				element: currentPageSection,
 				handler: (direction) => {
-					if (direction == "up") {
+					if (direction === "up") {
 						const matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
 						that.headerLinks.removeClass('is-current-link');
-						$(matchingHeaderLink).addClass("is-current-link");	
+						$(matchingHeaderLink).addClass("is-current-link");
 					}
 				},
 				offset: '-40%'
