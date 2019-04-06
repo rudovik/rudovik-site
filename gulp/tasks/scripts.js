@@ -1,4 +1,4 @@
-const {task} = require('gulp');
+const {task, series} = require('gulp');
 const webpack = require('webpack');
 const config = require('../../webpack.config.js');
 const browserSync = require('browser-sync').get('srv');
@@ -14,4 +14,4 @@ function scripts (cb) {
 	});
 }
 
-task('scripts', scripts);
+task('scripts', series('modernizr', scripts));
