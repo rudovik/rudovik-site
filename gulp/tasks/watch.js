@@ -10,12 +10,19 @@ function watchTask (cb) {
 	watch(['app/index.html'], series('doHtml'));
 
 	watch(
-		['./app/assets/styles/**/*.css'],
+		[
+			'.app/assets/styles/*.css',
+			'./app/assets/styles/modules/*.css',
+			'./app/assets/styles/base/*.css'
+		],
 		series('doStyles')
 	);
 
 	watch(
-		['./app/assets/scripts/**/*.js'],
+		[
+			'./app/assets/scripts/*.js',
+			'.app/assets/scripts/modules/.*js'
+		],
 		series('scripts')
 	);
 
