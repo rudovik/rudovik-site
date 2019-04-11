@@ -14,11 +14,11 @@ task('previewDist', () => {
 	});
 });
 
-task('deleteDistFolder', () => {
+function deleteDistFolder () {
 	return del("./docs");
-});
+}
 
-task('copyGeneralFiles', () => {
+function copyGeneralFiles () {
 	const pathsToCopy = [
 		'./app/**/*',
 		'!./app/index.html',
@@ -31,9 +31,9 @@ task('copyGeneralFiles', () => {
 
 	return src(pathsToCopy).
 		pipe(dest("./docs"));
-});
+}
 
-task('optimizeImages', () => {
+function optimizeImages () {
 	return src([
 		'./app/assets/images/**/*',
 		'!./app/assets/images/icons',
@@ -45,19 +45,19 @@ task('optimizeImages', () => {
 			progressive: true
 		})).
 		pipe(dest("./docs/assets/images"));
-});
+}
 
-task('usemin', () => {
+function doUsemin () {
 	return src("./app/index.html").
 		pipe(usemin({
 			css: [rev, cssnano],
 			js: [rev, uglify]
 		})).
 		pipe(dest('./docs'));
-});
+}
 
 task('build', series(
 	'icons', 'doStyles', 'scripts',
-	'deleteDistFolder', 'copyGeneralFiles',
-	'optimizeImages', 'usemin'
+	deleteDistFolder, copyGeneralFiles,
+	optimizeImages, doUsemin
 ));

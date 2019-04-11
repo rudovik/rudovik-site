@@ -30,40 +30,39 @@ const {task, src, dest, series} = require('gulp');
 const svgSprite = require('gulp-svg-sprite');
 const svg2png = require('gulp-svg2png');
 
-task('createSprite', () => {
+function createSprite () {
 	return src('./app/assets/images/icons/**/*.svg').
 		pipe(svgSprite(config)).
 		pipe(dest('./app/temp/sprite/'));
-});
+}
 
 function createPngCopy () {
 	return src('./app/temp/sprite/css/*.svg').
 		pipe(svg2png()).
 		pipe(dest('./app/temp/sprite/css'));
 }
-task('createPngCopy', series('createSprite', createPngCopy));
 
-task('copySpriteCSS', () => {
+function copySpriteCSS () {
 	return src('./app/temp/sprite/css/*.css').
 		pipe(rename('_sprite.css')).
 		pipe(dest('./app/assets/styles/modules'));
-});
+}
 
-task('copySpriteGraphic', () => {
+function copySpriteGraphic () {
 	return src('./app/temp/sprite/css/**/*.{svg,png}').
 		pipe(dest('./app/assets/images/sprites'));
-});
+}
 
-task('beginClean', () => {
+function beginClean () {
 	return del(['./app/temp/sprite', './app/assets/images/sprites']);
-});
+}
 
-task('endClean', () => {
+function endClean () {
 	return del('./app/temp/sprite');
-});
+}
 
 task('icons', series(
-	'beginClean', 'createPngCopy',
-	'copySpriteCSS', 'copySpriteGraphic',
-	'endClean'
+	beginClean, createSprite, createPngCopy,
+	copySpriteCSS, copySpriteGraphic,
+	endClean
 ));
